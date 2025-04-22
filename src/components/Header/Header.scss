@@ -1,15 +1,24 @@
 .header-content {
   min-height: 75vh;
-  background: linear-gardient(rgba(141, 39, 174, 0.3), rgba(141, 39, 1)),
-    url('../../images/backgrundbild.jpg') center/cover no-repeat;
+  background: url('../../images/backgrundbild.jpg') center/cover no-repeat;
+  display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
 }
+
 .header-title {
   font-size: 4.2rem;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
 }
-.head-text {
+
+.header-text {
   margin-top: -1.8rem;
   margin-bottom: 2.8rem;
-  opacity: 0.8;
+  opacity: 0.85;
   max-width: 770px;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  text-align: center;
 }

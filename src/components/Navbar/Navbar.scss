@@ -1,24 +1,33 @@
 .navbar {
   padding: rgb(0, 0, 0, 0.1) 0px 10px 15px -3px,
     rgb(0, 0, 0, 0.05) 0px 4px 6px -2px;
+  position: relative; /* Lägg till detta för att säkerställa att z-index fungerar korrekt */
 }
+
 .navbar-brand {
   width: 90px;
 }
+
 .navbar-brand span {
   margin-left: 2rem;
 }
-.brad-and-toggler {
+
+.brand-and-toggler {
+  /* Korrigerad klassnamn */
   width: 100%;
 }
+
 .navbar-content {
   display: flex;
   width: 100%;
+  justify-content: space-between; /* Säkerställer att elementen sprids ut */
 }
-.nabar-toggler-btn {
+
+.navbar-toggler-btn {
   transition: var(--transition);
-  z-index: 11;
+  z-index: 11; /* Håller knappen ovanpå allt */
 }
+
 .navbar-collapse {
   position: fixed;
   right: 0;
@@ -29,21 +38,27 @@
   width: 280px;
   display: flex;
   padding: 10rem 3rem 0 3rem;
-  //   transform: translate(100%);
+  transform: translateX(100%); /* Döljer navbaren initialt */
   transition: var(--transition);
 }
-.show-nav-collapse {
-  transform: translateX(0);
+
+.show-navbar-collapse {
+  /* Fixat klassnamn */
+  transform: translateX(0); /* Visar navbaren när den är öppen */
 }
+
 .nav-item {
   margin-bottom: 1.4rem;
 }
+
 .nav-link {
   transition: var(--transition);
 }
+
 .nav-link:hover {
   color: var(--purple-color);
 }
+
 @media screen and (min-width: 992px) {
   .navbar-collapse {
     position: relative;
@@ -51,23 +66,27 @@
     padding: 0;
     width: 100%;
     background-color: transparent;
-    transform: translateX(0);
+    transform: translateX(0); /* Navbaren är alltid synlig */
     justify-content: flex-end;
   }
+
   .navbar-toggler-btn {
-    display: none;
+    display: none; /* Dölj hamburgerikonen på större skärmar */
   }
+
   .nav-item {
     margin-bottom: 0;
     margin-left: 2.8rem;
   }
+
   .nav-link {
     color: var(--black-color);
     font-size: 1.7rem;
     font-weight: 500 !important;
     opacity: 0.8;
   }
-  .navbr-nav {
-    display: flex;
+
+  .navbar-nav {
+    display: flex; /* Fixat klassnamn */
   }
 }

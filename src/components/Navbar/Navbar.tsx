@@ -1,18 +1,20 @@
-import React from 'react';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Navbar.scss';
 import logoImg from '../../images/logobild.jpg';
 import { HiOutlineMenuAlt3 } from 'react-icons/hi';
 
 const Navbar = () => {
-  const [toggelMenu, setToggelMenu] = useState(false);
-  const handleNavbar = () => setToggelMenu(!toggelMenu);
+  const [toggleMenu, setToggleMenu] = useState(false);
+
+  // Toggle menu visibility
+  const handleNavbar = () => setToggleMenu(!toggleMenu);
 
   return (
     <nav className="navbar" id="navbar">
-      <div className="container navbar-contetn flex">
-        <div className="brand-andtoggler flex flex-sb">
+      <div className="container navbar-content flex">
+        {/* Brand and Menu Toggler */}
+        <div className="brand-and-toggler flex flex-sb">
           <Link to={'/'} className="navbar-brand flex">
             <img src={logoImg} alt="site logo" />
             <span className="text-uppercase fw-7 fs-24 ls-1">Liberia</span>
@@ -24,16 +26,15 @@ const Navbar = () => {
           >
             <HiOutlineMenuAlt3
               size={35}
-              style={{
-                color: `${toggelMenu ? '#fff' : '#010101'}`,
-              }}
+              className={toggleMenu ? 'menu-icon active' : 'menu-icon'}
             />
           </button>
         </div>
 
+        {/* Menu Items */}
         <div
           className={
-            toggelMenu
+            toggleMenu
               ? 'navbar-collapse show-navbar-collapse'
               : 'navbar-collapse'
           }
@@ -52,7 +53,7 @@ const Navbar = () => {
                 to="about"
                 className="nav-link text-uppercase text-white fs-22 fw-6 ls-1"
               >
-                about
+                About
               </Link>
             </li>
           </ul>

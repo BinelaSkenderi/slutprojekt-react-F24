@@ -8,13 +8,13 @@ const Header = () => {
     <div className="holder">
       <header className="header">
         <Navbar />
-        <div className="header-content flex-c text-center text-white"></div>
-        <h2 className="header-title">Browse and Find Your Next Great Book</h2>
-        <br />
-        <p className="header-text fs-18 fw-3">
-          Explore our library and find your next favorite book
-        </p>
-        <SearchForm />
+        <div className="header-content flex-c text-center text-white">
+          <h1 className="header-title">Discover Your Next Great Book</h1>
+          <p className="header-text fs-18 fw-3">
+            Explore our library and find your next favorite story.
+          </p>
+          <SearchForm />
+        </div>
       </header>
     </div>
   );

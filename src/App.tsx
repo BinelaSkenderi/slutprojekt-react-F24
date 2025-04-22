@@ -1,5 +1,6 @@
 import './App.scss';
 import { createBrowserRouter, Router, RouterProvider } from 'react-router-dom';
+import { AppProvider } from './context';
 import About from './pages/About/About';
 import Home from './pages/Home/Home';
 import BookList from './components/BookList/BookList';
@@ -19,7 +20,7 @@ const router = createBrowserRouter([
     element: <BookList />,
     children: [
       {
-        path: '/book/:id',
+        path: ':id',
         element: <BookDetails />,
       },
     ],
@@ -27,7 +28,11 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-  return <RouterProvider router={router} />;
+  return (
+    <AppProvider>
+      <RouterProvider router={router} />
+    </AppProvider>
+  );
 }
 
 export default App;

@@ -4,18 +4,18 @@ import './SearchForm.scss';
 
 const SearchForm = () => {
   return (
-    <div className="search-form">
+    <div className="search-section">
       <div className="container">
-        <div className="search-form-content">
+        <div className="search-content">
           <form className="search-form">
-            <div className="search-form-elem flex flex-sb bg-wh">
+            <div className="search-input-wrapper flex flex-sb bg-wh">
               <input
                 type="text"
-                className="`form-cotrol"
+                className="form-control"
                 placeholder="The Lost World ..."
               />
-              <button type="submit" className="flex flex-c">
-                <FaSearch className="text-purple" size={32} />
+              <button type="submit" className="flex flex-c" aria-label="Search">
+                <FaSearch className="text-purple" size={28} />
               </button>
             </div>
           </form>
