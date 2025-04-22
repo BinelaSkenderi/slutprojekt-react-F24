@@ -9,7 +9,7 @@ const Header = () => {
       <header className="header">
         <Navbar />
         <div className="header-content flex-c text-center text-white"></div>
-        <h2 className="header-title">find your book of choice</h2>
+        <h2 className="header-title">Browse and Find Your Next Great Book</h2>
         <br />
         <p className="header-text fs-18 fw-3">
           Explore our library and find your next favorite book
