@@ -9,19 +9,19 @@ import BookDetails from './components/BookDetails/BookDetails';
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <Home />,
+    element: <Home />, // Startväg
   },
   {
     path: '/about',
-    element: <About />,
+    element: <About />, // Om-sida
   },
   {
     path: '/book',
-    element: <BookList />,
+    element: <BookList />, // Boklistan
     children: [
       {
         path: ':id',
-        element: <BookDetails />,
+        element: <BookDetails />, // En specifik bok (dynamisk id)
       },
     ],
   },

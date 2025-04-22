@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Navbar.scss';
-import logoImg from '../../images/logobild.jpg';
+import logoImg from '../../images/loggoNew.png';
 import { HiOutlineMenuAlt3 } from 'react-icons/hi';
 
 const Navbar = () => {
