@@ -8,15 +8,15 @@ import './BookList.scss';
 const BookList = () => {
   const { books, loading, resultTitle } = useGlobalContext();
 
-  if (loading) return <Loading />;
-
-  const booksWithCovers = books.map(book => ({
-    ...book,
-    id: book.id.replace('/works/', ''),
-    cover_img: book.cover_id
-      ? `https://covers.openlibrary.org/b/id/${book.cover_id}-L.jpg`
+  const booksWithCovers = books.map(singlebook => ({
+    ...singlebook,
+    id: singlebook.id.replace('/works/', ''),
+    cover_img: singlebook.cover_id
+      ? `https://covers.openlibrary.org/b/id/${singlebook.cover_id}-L.jpg`
       : coverImg,
   }));
+
+  if (loading) return <Loading />;
 
   return (
     <section className="booklist">
@@ -25,8 +25,8 @@ const BookList = () => {
           <h2>{resultTitle}</h2>
         </div>
         <div className="booklist-content grid">
-          {booksWithCovers.slice(0, 30).map((item, index) => (
-            <Book key={index} {...item} />
+          {booksWithCovers.slice(0, 30).map(item => (
+            <Book key={item.id} book={item} />
           ))}
         </div>
       </div>

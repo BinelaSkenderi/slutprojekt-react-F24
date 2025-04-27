@@ -1,0 +1,95 @@
+/* Main container */
+.about-main {
+  margin-top: 0; /* Ta bort margin-top för att fånga hela skärmen */
+  min-height: 100vh; /* Säkerställ att sidan täcker hela höjden */
+  background: linear-gradient(#eec9a4, #7f5b3c); /* Bakgrundsgradient */
+  color: #fff;
+  padding: 1.5rem;
+  display: flex; /* Flexbox för att centrera innehåll */
+  justify-content: center; /* Centrerar innehållet horisontellt */
+  align-items: center; /* Centrerar innehållet vertikalt */
+}
+
+/* Content container */
+.about-container {
+  max-width: 48rem;
+  margin: 0 auto;
+  background-color: #4e3629; /* Uppdaterad till brun färg */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 1rem;
+  padding: 2rem;
+  margin-top: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+/* Page title */
+.page-title {
+  font-size: 2.25rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* Section content */
+.about-text {
+  font-size: 1.125rem;
+  color: #dcdcdc; /* Ljusare text för bättre kontrast mot den mörka bakgrunden */
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+/* Profile container */
+.profile-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #6b4f2b; /* Mörkare brun */
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s;
+}
+
+.profile-container:hover {
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Profile text */
+.profile-name {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-top: 0.5rem;
+}
+
+.profile-role {
+  font-size: 0.875rem;
+  color: #e1d4b8; /* Ljusare text för att matcha den bruna tonen */
+}
+
+/* GitHub link */
+.github-link {
+  color: #00bfa6;
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+}
+
+.github-link:hover {
+  text-decoration: underline;
+}
+
+/* Back to home link */
+.back-link {
+  position: absolute; /* Gör att länken kan placeras i ett specifikt hörn */
+  top: 1.5rem; /* Avstånd från toppen */
+  left: 1.5rem; /* Avstånd från vänster */
+  color: #4e3629; /* Brungul färg för texten */
+  font-weight: 500;
+  font-size: 1.125rem;
+  text-decoration: none;
+}
+
+.back-link:hover {
+  text-decoration: underline;
+}

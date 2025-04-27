@@ -16,20 +16,20 @@ type AppContextType = {
   setResultTitle: (title: string) => void;
 };
 
-type bookSingle = {
+type Book = {
+  id: string;
   title: string;
-  key: string;
-  author_name: string[];
-  cover_i: number;
-  edition_count: number;
-  first_publish_year: number;
+  author: string;
+  coverId: number | null;
+  editionCount: number;
+  firstPublishYear: number;
 };
 
 const AppContext = React.createContext<AppContextType | undefined>(undefined);
 
 const AppProvider = ({ children }: { children: ReactNode }) => {
   const [searchTerm, setSearchTerm] = useState('the lost world');
-  const [books, setBooks] = useState([]);
+  const [books, setBooks] = useState<Book[]>([]);
   const [loading, setLoading] = useState(true);
   const [resultTitle, setResultTitle] = useState('');
 
@@ -39,25 +39,23 @@ const AppProvider = ({ children }: { children: ReactNode }) => {
       const response = await fetch(`${URL}${searchTerm}`);
       const data = await response.json();
       const { docs } = data;
-      console.log(docs);
-      setBooks(docs);
 
       if (docs) {
         const newBooks = docs
-          .slice(0, 20)
+          .slice(0, 20) // Limit to 20 books for performance
           .map(
             (bookSingle: {
-              key: any;
-              author_name: any;
-              cover_i: any;
-              edition_count: any;
-              first_publish_year: any;
-              title: any;
+              key: string;
+              author_name: string[];
+              cover_i: number;
+              edition_count: number;
+              first_publish_year: number;
+              title: string;
             }) => {
               const {
                 key,
-                author_name,
-                cover_i,
+                author_name = [],
+                cover_i = null,
                 edition_count,
                 first_publish_year,
                 title,
@@ -65,8 +63,8 @@ const AppProvider = ({ children }: { children: ReactNode }) => {
 
               return {
                 id: key,
-                author: author_name?.join(', '),
-                coverId: cover_i,
+                author: author_name.join(', '), // Ensure author is a string, joining if it's an array
+                coverId: cover_i, // Can be null if not available
                 editionCount: edition_count,
                 firstPublishYear: first_publish_year,
                 title: title,
@@ -74,21 +72,26 @@ const AppProvider = ({ children }: { children: ReactNode }) => {
             }
           );
 
-        setBooks(newBooks); // om du använder useState
+        setBooks(newBooks);
+
         if (newBooks.length > 1) {
-          setResultTitle('Your Search Result');
+          setResultTitle('Your Search Results');
+        } else if (newBooks.length === 1) {
+          setResultTitle(`1 Result Found: ${newBooks[0].title}`);
         } else {
-          setResultTitle('No Search Result Found!');
+          setResultTitle('No Search Results Found');
         }
       } else {
         setBooks([]);
-        setResultTitle('No Search Result Found!');
+        setResultTitle('No Search Results Found');
       }
-      setLoading(false);
     } catch (error) {
-      console.log(error);
+      console.log('Error fetching books:', error);
+      setBooks([]);
+      setResultTitle('Error Fetching Results');
+    } finally {
+      setLoading(false);
     }
-    setLoading(false);
   }, [searchTerm]);
 
   useEffect(() => {

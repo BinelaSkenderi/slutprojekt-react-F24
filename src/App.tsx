@@ -1,5 +1,5 @@
 import './App.scss';
-import { createBrowserRouter, Router, RouterProvider } from 'react-router-dom';
+import { createBrowserRouter, Routes, RouterProvider } from 'react-router-dom';
 import { AppProvider } from './context';
 import About from './pages/About/About';
 import Home from './pages/Home/Home';
@@ -20,7 +20,7 @@ const router = createBrowserRouter([
     element: <BookList />, // Boklistan
     children: [
       {
-        path: ':id',
+        path: '/book:id',
         element: <BookDetails />, // En specifik bok (dynamisk id)
       },
     ],
