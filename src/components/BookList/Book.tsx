@@ -1,36 +1,27 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import './BookList.scss';
 
-type BookProps = {
-  id: string;
-  title: string;
-  author: string[];
-  edition_count: number;
-  first_publish_year: number;
-  cover_img?: string;
-};
+interface BookProps {
+  book: {
+    id: string;
+    title: string;
+    author: string | string[]; // author kan vara antingen en string eller en array
+    cover_img: string;
+  };
+}
 
-const Book: React.FC<{ book: BookProps }> = ({ book }) => {
+const Book: React.FC<BookProps> = ({ book }) => {
+  // Kontrollera om author är en array, om inte, gör den till en array
+  const authors = Array.isArray(book.author) ? book.author : [book.author];
+
   return (
-    <div className="book-card">
-      <Link to={`/book/${book.id}`} className="book-link">
-        <div className="book-cover">
-          <img src={book.cover_img || '/default-cover.jpg'} alt={book.title} />
-        </div>
-        <div className="book-details">
-          <h3 className="book-title">{book.title}</h3>
-          <p className="book-author">
-            <strong>Author:</strong> {book.author.join(', ')}
-          </p>
-          <p className="book-edition">
-            <strong>Editions:</strong> {book.edition_count}
-          </p>
-          <p className="book-year">
-            <strong>First Published:</strong> {book.first_publish_year}
-          </p>
-        </div>
-      </Link>
+    <div className="book">
+      <div className="book-img">
+        <img src={book.cover_img} alt={book.title} />
+      </div>
+      <div className="book-info">
+        <h3>{book.title}</h3>
+        <p>{authors.join(', ')}</p>
+      </div>
     </div>
   );
 };
