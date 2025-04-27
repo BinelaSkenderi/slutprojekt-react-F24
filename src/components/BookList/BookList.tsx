@@ -20,7 +20,7 @@ const BookList = () => {
   if (loading) return <Loading />;
 
   return (
-    <section className="booklist">
+    <section className="booklist" id="booklist">
       <div className="container">
         <div className="section-title">
           <h2>{resultTitle}</h2>

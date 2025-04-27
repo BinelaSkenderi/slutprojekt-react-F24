@@ -26,9 +26,13 @@ const SearchForm: React.FC = () => {
         setSearchTerm(tempSearchTerm);
       }
 
-      navigate('/book'); // Navigera till /book-sidan
+      // Skrolla ner till booklist
+      const bookListSection = document.getElementById('booklist');
+      if (bookListSection) {
+        bookListSection.scrollIntoView({ behavior: 'smooth' });
+      }
     },
-    [searchValue, setSearchTerm, setResultTitle, navigate]
+    [searchValue, setSearchTerm, setResultTitle]
   );
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
