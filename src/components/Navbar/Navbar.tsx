@@ -1,63 +1,35 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Navbar.scss';
-import logoImg from '../../images/loggoNew.png';
-import { HiOutlineMenuAlt3 } from 'react-icons/hi';
+import NavbarBrand from './NavbarBrand';
+import NavbarToggler from './NavbarToggler';
+import NavbarMenu from './NavbarMenu';
 
 const Navbar = () => {
   const [toggleMenu, setToggleMenu] = useState(false);
 
   // Toggle menu visibility
-  const handleNavbar = () => setToggleMenu(!toggleMenu);
+  const handleToggleMenu = () => {
+    setToggleMenu(!toggleMenu);
+  };
 
   return (
     <nav className="navbar" id="navbar">
       <div className="container navbar-content flex">
-        {/* Brand and Menu Toggler */}
-        <div className="brand-and-toggler flex flex-sb">
-          <Link to={'/'} className="navbar-brand flex">
-            <img src={logoImg} alt="site logo" />
-            <span className="text-uppercase fw-7 fs-24 ls-1">Liberia</span>
-          </Link>
-          <button
-            type="button"
-            className="navbar-toggler-btn"
-            onClick={handleNavbar}
-          >
-            <HiOutlineMenuAlt3
-              size={35}
-              className={toggleMenu ? 'menu-icon active' : 'menu-icon'}
-            />
-          </button>
-        </div>
+        {/* NavbarBrand: Komponent för logotyp och länken till hemsidan */}
+        <NavbarBrand />
 
-        {/* Menu Items */}
-        <div
-          className={
-            toggleMenu
-              ? 'navbar-collapse show-navbar-collapse'
-              : 'navbar-collapse'
-          }
-        >
-          <ul className="navbar-nav">
-            <li className="nav-item">
-              <Link
-                to="/book"
-                className="nav-link text-uppercase text-white fs-22 fw-6 ls-1"
-              >
-                Home
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link
-                to="about"
-                className="nav-link text-uppercase text-white fs-22 fw-6 ls-1"
-              >
-                About
-              </Link>
-            </li>
-          </ul>
-        </div>
+        {/* NavbarToggler: Komponent för hamburgermenyn */}
+        <NavbarToggler
+          toggleMenu={toggleMenu}
+          handleToggleMenu={handleToggleMenu} // Skickar rätt funktion
+        />
+
+        {/* NavbarMenu: Komponent för att visa menylänkar */}
+        <NavbarMenu
+          toggleMenu={toggleMenu} // Skickar statusen för menyn
+          handleToggleMenu={handleToggleMenu} // Skickar rätt funktion för att ändra menyn
+        />
       </div>
     </nav>
   );

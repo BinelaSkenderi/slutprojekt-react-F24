@@ -36,9 +36,13 @@
   right: 0;
   top: 0;
   z-index: 10;
-  background: linear-gradient(#eec9a4, #311e0e); /* Bakgrundsgradient */
+  background: linear-gradient(
+    to right,
+    #fffefe,
+    #311e0e
+  ); /* Bakgrundsgradient */
   height: 100%;
-  width: 280px;
+  width: 160px;
   display: flex;
   padding: 10rem 3rem 0 3rem;
   transform: translateX(100%); /* Döljer navbaren initialt */
