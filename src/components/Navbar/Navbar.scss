@@ -1,9 +1,7 @@
 /* Navbar */
 .navbar {
-  padding: rgb(0, 0, 0, 0.1) 0px 10px 15px -3px,
-    rgb(0, 0, 0, 0.05) 0px 4px 6px -2px;
   position: relative; /* Lägg till detta för att säkerställa att z-index fungerar korrekt */
-  color: #fff; /* Vit textfärg för kontrast */
+  color: #311e0e; /* Vit textfärg för kontrast */
 }
 
 /* Navbar Brand */
@@ -12,7 +10,7 @@
 }
 
 .navbar-brand span {
-  margin-left: 2rem;
+  margin-left: 1rem;
 }
 
 .brand-and-toggler {
@@ -36,11 +34,7 @@
   right: 0;
   top: 0;
   z-index: 10;
-  background: linear-gradient(
-    to right,
-    #fffefe,
-    #311e0e
-  ); /* Bakgrundsgradient */
+  background: linear-gradient(#fffefe, Transparent); /* Bakgrundsgradient */
   height: 100%;
   width: 160px;
   display: flex;
@@ -59,7 +53,7 @@
 
 .nav-link {
   transition: var(--transition);
-  color: #fff; /* Vit textfärg för nav-länkar */
+  color: #311e0e; /* Vit textfärg för nav-länkar */
 }
 
 .nav-link:hover {

@@ -21,6 +21,7 @@ const NavbarMenu: React.FC<NavbarMenuProps> = ({
           <Link
             to="/"
             className="nav-link text-uppercase text-white fs-22 fw-6 ls-1"
+            onClick={handleToggleMenu}
           >
             Home
           </Link>
@@ -29,8 +30,39 @@ const NavbarMenu: React.FC<NavbarMenuProps> = ({
           <Link
             to="/about"
             className="nav-link text-uppercase text-white fs-22 fw-6 ls-1"
+            onClick={handleToggleMenu}
           >
             About
+          </Link>
+        </li>
+        {/* Länkar till kategorisidorna */}
+        <li className="nav-item">
+          <Link
+            to="/categories"
+            className="nav-link text-uppercase text-white fs-22 fw-6 ls-1"
+            onClick={handleToggleMenu}
+          >
+            Categories
+          </Link>
+        </li>
+        {/* Länkar till författarsidorna */}
+        <li className="nav-item">
+          <Link
+            to="/authors"
+            className="nav-link text-uppercase text-white fs-22 fw-6 ls-1"
+            onClick={handleToggleMenu}
+          >
+            Authors
+          </Link>
+        </li>
+        {/* Länkar till språk-sidorna */}
+        <li className="nav-item">
+          <Link
+            to="/languages"
+            className="nav-link text-uppercase text-white fs-22 fw-6 ls-1"
+            onClick={handleToggleMenu}
+          >
+            Languages
           </Link>
         </li>
       </ul>

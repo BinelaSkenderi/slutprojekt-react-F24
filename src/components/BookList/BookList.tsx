@@ -11,10 +11,12 @@ const BookList = () => {
   const booksWithCovers = books.map(singlebook => ({
     ...singlebook,
     id: singlebook.id.replace('/works/', ''),
-    cover_img: singlebook.cover_id
-      ? `https://covers.openlibrary.org/b/id/${singlebook.cover_id}-L.jpg`
+    cover_img: singlebook.coverId
+      ? `https://covers.openlibrary.org/b/id/${singlebook.coverId}-L.jpg
+      `
       : coverImg,
   }));
+
   console.log(booksWithCovers);
 
   if (loading) return <Loading />;

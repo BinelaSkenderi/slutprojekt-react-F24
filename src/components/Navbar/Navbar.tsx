@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import './Navbar.scss';
 import NavbarBrand from './NavbarBrand';
 import NavbarToggler from './NavbarToggler';
