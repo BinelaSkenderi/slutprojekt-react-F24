@@ -15,16 +15,13 @@ const Navbar = () => {
   return (
     <nav className="navbar" id="navbar">
       <div className="container navbar-content flex">
-        {/* NavbarBrand: Komponent för logotyp och länken till hemsidan */}
         <NavbarBrand />
 
-        {/* NavbarToggler: Komponent för hamburgermenyn */}
         <NavbarToggler
           toggleMenu={toggleMenu}
           handleToggleMenu={handleToggleMenu} // Skickar rätt funktion
         />
 
-        {/* NavbarMenu: Komponent för att visa menylänkar */}
         <NavbarMenu
           toggleMenu={toggleMenu} // Skickar statusen för menyn
           handleToggleMenu={handleToggleMenu} // Skickar rätt funktion för att ändra menyn

@@ -35,7 +35,6 @@ const NavbarMenu: React.FC<NavbarMenuProps> = ({
             About
           </Link>
         </li>
-        {/* Länkar till kategorisidorna */}
         <li className="nav-item">
           <Link
             to="/categories"
@@ -45,7 +44,6 @@ const NavbarMenu: React.FC<NavbarMenuProps> = ({
             Categories
           </Link>
         </li>
-        {/* Länkar till författarsidorna */}
         <li className="nav-item">
           <Link
             to="/authors"
@@ -55,7 +53,6 @@ const NavbarMenu: React.FC<NavbarMenuProps> = ({
             Authors
           </Link>
         </li>
-        {/* Länkar till språk-sidorna */}
         <li className="nav-item">
           <Link
             to="/languages"

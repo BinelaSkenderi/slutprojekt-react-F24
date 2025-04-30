@@ -52,7 +52,8 @@ const CategoryPage: React.FC = () => {
   return (
     <div className="container category-page">
       <div className="back-link">
-        <Link to="← /">← Back to Home</Link>
+        {/* Uppdaterad länk som navigerar till hemsidan */}
+        <Link to="/">← Back to Home</Link>
       </div>
 
       <h2 className="section-title">Välj en kategori</h2>
