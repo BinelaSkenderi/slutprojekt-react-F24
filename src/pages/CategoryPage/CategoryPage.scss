@@ -1,0 +1,58 @@
+.category-page {
+  padding-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Back to home link */
+.back-link {
+  position: absolute; /* Gör att länken kan placeras i ett specifikt hörn */
+  top: 1.5rem; /* Avstånd från toppen */
+  left: 1.5rem; /* Avstånd från vänster */
+  color: #4e3629; /* Brungul färg för texten */
+  font-weight: 500;
+  font-size: 1.125rem;
+  text-decoration: none;
+}
+
+.back-link:hover {
+  text-decoration: underline;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2.4rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+}
+
+.category-list {
+  list-style: none;
+  padding: 0;
+  width: 100%;
+  max-width: 600px;
+}
+
+.category-item {
+  margin-bottom: 1rem;
+}
+
+.category-list button {
+  font-size: 1.6rem;
+  font-weight: 600;
+  padding: 1rem;
+  background-color: var(--grey-color);
+  border-radius: 5px;
+  width: 100%;
+  text-align: left;
+}
+
+.book-list ul {
+  padding-left: 2rem;
+}
+
+.book-list li {
+  font-size: 1.4rem;
+  padding: 0.3rem 0;
+}

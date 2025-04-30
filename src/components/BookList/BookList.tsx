@@ -1,6 +1,6 @@
 import React from 'react';
-import { useGlobalContext } from '../../context';
-import Book from '../BookList/Book';
+import { useGlobalContext } from '../../context/BookContext';
+import Book from './Book'; // Korrekt import
 import Loading from '../Loader/Loader';
 import coverImg from '../../images/covernotfound.png';
 import './BookList.scss';
@@ -12,12 +12,9 @@ const BookList = () => {
     ...singlebook,
     id: singlebook.id.replace('/works/', ''),
     cover_img: singlebook.coverId
-      ? `https://covers.openlibrary.org/b/id/${singlebook.coverId}-L.jpg
-      `
+      ? `https://covers.openlibrary.org/b/id/${singlebook.coverId}-L.jpg`
       : coverImg,
   }));
-
-  console.log(booksWithCovers);
 
   if (loading) return <Loading />;
 

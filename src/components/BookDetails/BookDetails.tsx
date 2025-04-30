@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, Link } from 'react-router-dom';
 import Loading from '../Loader/Loader';
 import coverImg from '../../images/covernotfound.png';
 import './BookDetails.scss';
@@ -21,6 +21,7 @@ const BookDetails = () => {
   const [loading, setLoading] = useState(false);
   const [book, setBook] = useState<BookDetailsType | null>(null);
   const navigate = useNavigate();
+  console.log(id);
 
   useEffect(() => {
     const getBookDetails = async () => {
@@ -76,14 +77,9 @@ const BookDetails = () => {
   return (
     <section className="book-details">
       <div className="container">
-        <button
-          type="button"
-          className="flex flex-c back-btn"
-          onClick={() => navigate('/book')}
-        >
-          <FaArrowLeft size={22} />
-          <span className="fs-18 fw-6">Go Back</span>
-        </button>
+        <div className="back-link">
+          <Link to="/">← Back to Home</Link>
+        </div>
 
         {book && (
           <div className="book-details-content grid">

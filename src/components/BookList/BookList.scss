@@ -2,60 +2,65 @@
 .book-details {
   padding: 3rem 0;
 }
+
 .booklist-content {
-  gap: 3rem;
-}
-.book-item {
-  padding: 3rem 2rem;
-  border-radius: 4px;
-  background-color: var(--white-color);
-  box-shadow: rgb (0, 0, 0, 0.05) 0px 5px 15px 0px;
-  transition: var(--transition);
-}
-.book-item {
-  box-shadow: rgb(0, 0, 0, 0.15) 0px 5px 15px 0px;
-}
-.book-item-img img {
-  max-width: 100px;
-  margin-right: auto;
-  margin-left: auto;
-}
-.book-item-info {
-  margin-top: 2rem;
-}
-.book-item-ifo-item.title {
-  line-height: 1.4;
-  margin-bottom: 0.8rem;
-}
-.book-item-info-item.author {
-  line-height: 1.4;
-  margin-bottom: 4px;
-}
-.book-item-info-item:not(.book-item-info-item.title) span:last-child {
-  opacity: 0.8;
-}
-.book-item-info-item.publish-year {
-  opacity: 0.6;
-  font-style: italic;
-  font-size: 14px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Mindre kort */
+  gap: 2rem;
+  width: 100%;
 }
 
+.book-item {
+  padding: 2rem;
+  background-color: var(--white-color);
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: 0.3s ease;
+  text-align: center;
+}
+
+.book-item:hover {
+  transform: translateY(-5px);
+}
+
+.book-item-img img {
+  max-width: 100px;
+  height: auto;
+  margin: 0 auto;
+}
+.book-item-info {
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+.book-item-info-item.title {
+  font-weight: 600;
+  font-size: 1.8rem;
+  margin-bottom: 0.8rem;
+}
+
+.book-item-info-item.author {
+  font-size: 1.4rem;
+  opacity: 0.8;
+  margin-bottom: 0.4rem;
+}
+
+.book-item-info-item.publish-year {
+  font-size: 1.2rem;
+  opacity: 0.6;
+  font-style: italic;
+}
+
+/* Responsivt */
 @media screen and (min-width: 600px) {
   .booklist-content {
     grid-template-columns: repeat(2, 1fr);
   }
 }
+
 @media screen and (min-width: 992px) {
   .booklist-content {
-    grid-templete-columns: repeat(3, 1fr);
-  }
-  .book-item-img img {
-    max-width: 150px;
-  }
-}
-@media screen and (min-width: 992px) {
-  .booklist-content {
-    grid-templete-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4, 1fr);
   }
   .book-item-img img {
     max-width: 120px;

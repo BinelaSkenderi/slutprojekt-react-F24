@@ -1,6 +1,6 @@
 import './App.scss';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import { AppProvider } from './context';
+import { BookProvider } from './context/BookProvider'; // ← ändrad
 import About from './pages/About/About';
 import Home from './pages/Home/Home';
 import BookList from './components/BookList/BookList';
@@ -26,7 +26,6 @@ const router = createBrowserRouter([
     path: '/book/:id',
     element: <BookDetails />,
   },
-
   {
     path: '/categories',
     element: <CategoryPage />,
@@ -43,9 +42,9 @@ const router = createBrowserRouter([
 
 function App() {
   return (
-    <AppProvider>
+    <BookProvider>
       <RouterProvider router={router} />
-    </AppProvider>
+    </BookProvider>
   );
 }
 
