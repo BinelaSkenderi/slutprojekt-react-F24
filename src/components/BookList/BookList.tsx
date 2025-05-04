@@ -40,14 +40,7 @@ const BookList = () => {
 
         <div className="booklist-content grid">
           {booksWithCovers.slice(0, 30).map(item => (
-            <Book
-              key={item.id}
-              book={item}
-              isFavorite={false}
-              onToggleFavorite={function (id: string): void {
-                throw new Error('Function not implemented.');
-              }}
-            />
+            <Book key={item.id} book={item} />
             // Renderar en Book-komponent för varje bok (max 30 böcker)
             // Skickar med boken som props
           ))}
