@@ -1,7 +1,12 @@
-/* Navbar */
+/*====================*/
+/*      NAVBAR        */
+/*====================*/
 .navbar {
-  position: relative; /* Lägg till detta för att säkerställa att z-index fungerar korrekt */
-  color: #311e0e; /* Vit textfärg för kontrast */
+  position: relative;
+  background-color: var(--color-background);
+  color: var(--black-color);
+  padding: 1.2rem 2rem;
+  z-index: 1000;
 }
 
 /* Navbar Brand */
@@ -11,8 +16,10 @@
 
 .navbar-brand span {
   margin-left: 1rem;
+  color: var(--black-color);
 }
 
+/* Brand and Toggler */
 .brand-and-toggler {
   width: 100%;
 }
@@ -23,71 +30,86 @@
   justify-content: space-between;
 }
 
+/* Toggler Button (Hamburgare) */
 .navbar-toggler-btn {
-  transition: var(--transition);
-  z-index: 11; /* Håller knappen ovanpå allt */
-  color: #0a0601; /* Vit text på knappen för kontrast */
+  color: var(--black-color);
+  background: transparent;
+  z-index: 11;
+  transition: color 0.3s ease;
 }
 
+.menu-icon:hover {
+  color: var(--color-primary);
+}
+
+/* Collapse (mobilmeny) */
 .navbar-collapse {
   position: fixed;
   right: 0;
   top: 0;
   z-index: 10;
-  background: linear-gradient(#fffefe, Transparent); /* Bakgrundsgradient */
+  background-color: var(--color-background);
   height: 100%;
-  width: 160px;
+  width: 200px;
   display: flex;
+  flex-direction: column;
   padding: 10rem 3rem 0 3rem;
-  transform: translateX(100%); /* Döljer navbaren initialt */
-  transition: var(--transition);
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
 }
 
 .show-navbar-collapse {
-  transform: translateX(0); /* Visar navbaren när den är öppen */
+  transform: translateX(0);
 }
 
+/* Navigation Items */
 .nav-item {
-  margin-bottom: 1.4rem;
+  margin-bottom: 1.8rem;
 }
 
 .nav-link {
-  transition: var(--transition);
-  color: #311e0e; /* Vit textfärg för nav-länkar */
+  color: var(--black-color);
+  font-size: 1.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: color 0.3s ease;
 }
 
 .nav-link:hover {
-  color: #4b3621; /* Guldbrun när hover-effekten används */
+  color: var(--color-primary);
 }
 
+/* Desktop layout */
 @media screen and (min-width: 992px) {
   .navbar-collapse {
     position: relative;
     height: auto;
-    padding: 0;
     width: 100%;
-    background-color: transparent; /* Transparent bakgrund på större skärmar */
+    background-color: transparent;
     transform: translateX(0);
+    padding: 0;
+    flex-direction: row;
     justify-content: flex-end;
-  }
-
-  .navbar-toggler-btn {
-    display: none; /* Dölj hamburgerikonen på större skärmar */
-  }
-
-  .nav-item {
-    margin-bottom: 0;
-    margin-left: 2.8rem;
-  }
-
-  .nav-link {
-    color: #3e2a47; /* Mörk Brun text för större skärmar */
-    font-size: 1.7rem;
-    font-weight: 500 !important;
-    opacity: 0.8;
   }
 
   .navbar-nav {
     display: flex;
+    gap: 2.8rem;
+    align-items: center;
+  }
+
+  .navbar-toggler-btn {
+    display: none;
+  }
+
+  .nav-item {
+    margin-left: 0;
+    margin-bottom: 0;
+  }
+
+  .nav-link {
+    font-size: 1.7rem;
+    opacity: 0.85;
   }
 }

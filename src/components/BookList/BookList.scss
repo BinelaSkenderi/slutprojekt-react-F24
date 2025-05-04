@@ -5,53 +5,55 @@
 
 .booklist-content {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Mindre kort */
-  gap: 2rem;
-  width: 100%;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 1.5rem;
 }
 
 .book-item {
-  padding: 2rem;
-  background-color: var(--white-color);
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: 0.3s ease;
+  width: 100px; /* eller mindre, t.ex. 80px */
+  margin: 1rem auto;
   text-align: center;
 }
 
-.book-item:hover {
-  transform: translateY(-5px);
+.book-item-img {
+  width: 100%; /* så att det följer .book-item */
+  max-width: 60px; /* du kan minska till 50px eller 40px */
+  margin: 0 auto;
 }
 
 .book-item-img img {
-  max-width: 100px;
+  width: 100%; /* full bredd inom .book-item-img */
   height: auto;
-  margin: 0 auto;
+  display: block;
+  transition: transform 0.3s ease;
 }
+
 .book-item-info {
-  margin-top: 1.5rem;
+  margin-top: 1.2rem;
   text-align: center;
 }
 
 .book-item-info-item.title {
   font-weight: 600;
-  font-size: 1.8rem;
-  margin-bottom: 0.8rem;
+  font-size: 1.6rem;
+  margin-bottom: 0.6rem;
+  color: var(--black-color);
 }
 
 .book-item-info-item.author {
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   opacity: 0.8;
   margin-bottom: 0.4rem;
+  color: var(--light-black-color);
 }
 
 .book-item-info-item.publish-year {
   font-size: 1.2rem;
   opacity: 0.6;
   font-style: italic;
+  color: var(--light-black-color);
 }
 
-/* Responsivt */
 @media screen and (min-width: 600px) {
   .booklist-content {
     grid-template-columns: repeat(2, 1fr);
@@ -62,7 +64,8 @@
   .booklist-content {
     grid-template-columns: repeat(4, 1fr);
   }
+
   .book-item-img img {
-    max-width: 120px;
+    max-width: 100px;
   }
 }

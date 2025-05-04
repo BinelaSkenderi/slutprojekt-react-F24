@@ -1,14 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
+/*====================*/
+/*        FÄRGER      */
+/*====================*/
 :root {
-  --tre-color: #7f5b3c;
-  --pink-color: #d9176d; // Fixad
+  --color-primary: #74512d;
+  --color-surface: #af8f6f;
+  --color-background: #f8f4e1;
+  --color-dark: #543310;
   --grey-color: #f3f3f3;
-  --whit-color: #fff; // Fixad
-  --black-color: #333; // Lagt till
-  --light-black-color: rgba(0, 0, 0, 0.6); // Exempel på ljus svart
+  --black-color: #333;
+  --light-black-color: rgba(0, 0, 0, 0.6);
+  --white-color: #ffffff;
 }
 
+/*====================*/
+/*     RESET/STANDARD */
+/*====================*/
 * {
   padding: 0;
   margin: 0;
@@ -24,6 +32,7 @@ body {
   line-height: 1.7;
   font-family: 'Poppins', sans-serif;
   color: var(--black-color);
+  background-color: var(--color-background);
 }
 
 ul {
@@ -60,30 +69,50 @@ input {
   transition: none !important;
 }
 
-/* backgrounds */
-.bg-pink {
-  background-color: var(--pink-color);
+/*====================*/
+/*      BAKGRUNDER    */
+/*====================*/
+.bg-primary {
+  background-color: var(--color-primary);
 }
 
-.bg-purple {
-  background-color: var(--purple-color);
+.bg-surface {
+  background-color: var(--color-surface);
+}
+
+.bg-background {
+  background-color: var(--color-background);
 }
 
 .bg-white {
-  background-color: var(--whit-color);
+  background-color: var(--white-color);
 }
 
-/* text */
+.bg-section-title {
+  background-color: var(--color-surface);
+}
+
+/*====================*/
+/*       TEXT         */
+/*====================*/
 .text-black {
   color: var(--black-color);
 }
 
-.text-white {
-  color: var(--whit-color);
+.text-dark {
+  color: var(--color-dark);
 }
 
-.text-purple {
-  color: var(--purple-color);
+.text-white {
+  color: var(--white-color);
+}
+
+.text-primary {
+  color: var(--color-primary);
+}
+
+.text-surface {
+  color: var(--color-surface);
 }
 
 .text-light-black {
@@ -106,78 +135,72 @@ input {
   font-style: italic;
 }
 
-/* font weights */
+/*====================*/
+/*     FONT-VIKTER    */
+/*====================*/
 .fw-3 {
   font-weight: 300;
 }
-
 .fw-4 {
   font-weight: 400;
 }
-
 .fw-5 {
   font-weight: 500;
 }
-
 .fw-6 {
   font-weight: 600;
 }
-
 .fw-7 {
   font-weight: 700;
 }
-
 .fw-8 {
   font-weight: 800;
 }
-
 .fw-9 {
   font-weight: 900;
 }
 
-/* font sizes */
+/*====================*/
+/*    FONT-STORLEKAR  */
+/*====================*/
 .fs-15 {
   font-size: 1.5rem;
 }
-
 .fs-16 {
   font-size: 1.6rem;
 }
-
 .fs-17 {
   font-size: 1.7rem;
 }
-
 .fs-18 {
   font-size: 1.8rem;
 }
-
 .fs-20 {
   font-size: 2rem;
 }
-
 .fs-22 {
   font-size: 2.2rem;
 }
-
 .fs-24 {
   font-size: 2.4rem;
 }
-
 .fs-26 {
   font-size: 2.6rem;
 }
 
-/* letter spacing */
+/*====================*/
+/*   LETTER-SPACING   */
+/*====================*/
 .ls-1 {
   letter-spacing: 1px;
 }
-
 .ls-2 {
   letter-spacing: 2px;
 }
 
-/* flexbox */
+/*====================*/
+/*    FLEX / GRID     */
+/*====================*/
 .flex {
   display: flex;
   align-items: center;
@@ -200,15 +223,25 @@ input {
 }
 
 .container {
-  max-width: 1200px;
+  max-width: 1200px; /* Avkommenterad */
   margin: 0 auto;
   width: 100%;
   padding: 0 2rem;
 }
 
-/* section */
+/*====================*/
+/*    SEKTIONER       */
+/*====================*/
+.section-title {
+  text-align: left;
+  margin-bottom: 2rem;
+}
+
 .section-title h2 {
-  font-weight: 600;
+  font-weight: 600; /* Avkommenterad */
   text-transform: uppercase;
   padding: 18px 0 24px 0;
+  color: var(--black-color);
+  border-bottom: 2px solid var(--color-primary);
+  display: inline-block;
 }
