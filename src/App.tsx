@@ -1,7 +1,5 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-// Importerar React Router-funktioner: för att skapa och använda routes
 import { BookProvider } from './context/BookProvider';
-// Importerar provider som ger global tillgång till bok-data via context
 import About from './pages/About/About';
 import Home from './pages/Home/Home';
 import BookList from './components/BookList/BookList';
@@ -25,6 +23,7 @@ const router = createBrowserRouter([
   {
     path: '/book',
     element: <BookList />,
+    children: [],
   },
 
   {
@@ -51,10 +50,7 @@ const router = createBrowserRouter([
 function App() {
   return (
     <BookProvider>
-      {/* Omsluter hela appen med en provider som ger tillgång till global bokdata */}
-
       <RouterProvider router={router} />
-      {/* Använder router-konfigurationen ovan för att visa rätt komponent beroende på URL */}
     </BookProvider>
   );
 }

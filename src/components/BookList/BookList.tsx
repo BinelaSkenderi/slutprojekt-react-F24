@@ -1,11 +1,8 @@
 import React from 'react';
 import { useGlobalContext } from '../../context/BookContext';
-// Hämtar global state (t.ex. böcker och laddningsstatus) från din context
 import Book from './Book';
 import Loading from '../Loader/Loader';
-// Importerar laddningskomponenten som visas när data hämtas
 import coverImg from '../../images/covernotfound.png';
-// Importerar en standardbild som visas om boken saknar omslagsbild
 import './BookList.scss';
 
 const BookList = () => {
@@ -13,22 +10,22 @@ const BookList = () => {
   // Hämtar böcker, laddningsstatus och resultattext från global context
 
   const booksWithCovers = books.map(singlebook => ({
+    // 1. Kopiera alla befintliga fält från varje bok-objekt
     ...singlebook,
-    // Kopierar all data från boken
 
+    // 2. Ändra id: ta bort prefixet "/works/" från original-id:t
     id: singlebook.id.replace('/works/', ''),
-    // Tar bort "/works/" från ID:t för att göra det enklare att använda (t.ex. i URL)
 
+    // 3. Lägg till ett fält cover_img som går till rätt bild
     cover_img: singlebook.coverId
-      ? `https://covers.openlibrary.org/b/id/${singlebook.coverId}-L.jpg`
+      ? // Om det finns en coverId, bygg en URL till OpenLibrary
+        `https://covers.openlibrary.org/b/id/${singlebook.coverId}-L.jpg`
       : coverImg,
-    // Om boken har en omslags-ID, skapas URL till omslagsbilden.
-    // Om inte, används en standardbild (coverImg)
+    // Annars använd en standardbild som du har sparat i variabeln coverImg
   }));
-  // Skapar en ny array med omslagsbilder och rensade ID:n
 
   if (loading) return <Loading />;
-  // Om appen laddar data, visa Loader-komponenten direkt
+  //Ner appen laddar data, visa Loader-komponenten direkt
 
   return (
     <section className="booklist" id="booklist">

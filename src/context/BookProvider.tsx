@@ -7,9 +7,9 @@ export const BookProvider = ({ children }: { children: ReactNode }) => {
   const [searchTerm, setSearchTerm] = useState('the lost world');
 
   // hooken för att hämta böcker
-  const { books, loading, resultTitle, setBooks, setResultTitle } =
-    useBooks(searchTerm);
+  const { books, loading, resultTitle, setResultTitle } = useBooks(searchTerm);
 
+  //skapar värdet
   const value: AppContextType = {
     loading,
     books,

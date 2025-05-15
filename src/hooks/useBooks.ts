@@ -1,32 +1,22 @@
 import { useState, useEffect, useCallback } from 'react';
 import { Book } from '../context/bookTypes';
 
-// Grund-URL till Open Library API där vi söker på boktitlar
 const URL = 'https://openlibrary.org/search.json?title=';
 
-// Skapar en custom hook som tar in en sökterm
 export const useBooks = (searchTerm: string) => {
-  // books: sparar listan med böcker
   const [books, setBooks] = useState<Book[]>([]);
-
-  // loading: håller reda på om API-anropet pågår
   const [loading, setLoading] = useState<boolean>(false);
-
   // resultTitle: text som visas beroende på resultatet (t.ex. "No results found")
   const [resultTitle, setResultTitle] = useState<string>('');
 
   // Funktion som hämtar böcker från API:t — memoiserad med useCallback för att undvika onödiga upprepningar
   const fetchBooks = useCallback(async () => {
-    // Startar laddningsindikatorn
     setLoading(true);
-
     try {
       // Gör ett anrop till API:t med söktermen
       const response = await fetch(`${URL}${searchTerm}`);
-
       // Omvandlar svaret till JSON
       const data = await response.json();
-
       // Hämtar ut 'docs' som innehåller träffarna
       const { docs } = data;
 
@@ -72,12 +62,10 @@ export const useBooks = (searchTerm: string) => {
         setResultTitle('No Search Results Found');
       }
     } catch (error) {
-      // Fångar fel om något går fel i API-anropet
-      console.log('Error fetching books:', error);
       setBooks([]);
       setResultTitle('Error Fetching Results');
     } finally {
-      // Stänger av laddningsindikatorn oavsett vad som händer
+      // Stänger av laddning
       setLoading(false);
     }
   }, [searchTerm]); // Kör om söktermen ändras

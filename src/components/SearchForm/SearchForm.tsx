@@ -2,7 +2,6 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { useGlobalContext } from '../../context/BookContext';
 import './SearchForm.scss';
 import SearchInput from './SearchInput';
-// Importerar återanvändbar komponent för sökfältet
 
 const SearchForm: React.FC = () => {
   // Definierar en funktionell komponent av typen React.FC
@@ -15,10 +14,7 @@ const SearchForm: React.FC = () => {
 
   useEffect(() => {
     const inputElement = document.getElementById('search-input');
-    // Hämtar inputfältet via ID
-
     if (inputElement) inputElement.focus();
-    // Sätter automatiskt fokus på inputfältet när sidan laddas
   }, []);
 
   const handleSubmit = useCallback(
@@ -33,21 +29,16 @@ const SearchForm: React.FC = () => {
         // Om inputen bara är specialtecken eller tom
 
         setSearchTerm('the lost world');
-        // Sätter en default-sökterm
 
         setResultTitle('Please Enter Something ...');
-        // Visar ett meddelande till användaren
       } else {
         setSearchTerm(tempSearchTerm);
-        // Annars sök på det användaren skrev in
       }
 
       const bookListSection = document.getElementById('booklist');
-      // Hittar sektionen med boklistan
 
       if (bookListSection) {
         bookListSection.scrollIntoView({ behavior: 'smooth' });
-        // Scrollar mjukt ner till boklistan
       }
     },
     [searchValue, setSearchTerm, setResultTitle]

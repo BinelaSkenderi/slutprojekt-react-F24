@@ -176,33 +176,38 @@ const LanguagePage: React.FC = () => {
               }}
             >
               {books.map(book => (
-                <div
+                <Link
+                  to={`/book/${book.key.replace('/works/', '')}`}
                   key={book.key}
-                  style={{
-                    border: '1px solid #ccc',
-                    borderRadius: '8px',
-                    padding: '0.5rem',
-                    textAlign: 'center',
-                  }}
+                  style={{ textDecoration: 'none', color: 'inherit' }}
                 >
-                  <img
-                    src={getCoverUrl(book)}
-                    alt={book.title}
+                  <div
                     style={{
-                      width: '100px',
-                      height: '150px',
-                      objectFit: 'cover',
+                      border: '1px solid #ccc',
+                      borderRadius: '8px',
+                      padding: '0.5rem',
+                      textAlign: 'center',
                     }}
-                  />
-                  <h5 style={{ fontSize: '1rem', margin: '0.5rem 0' }}>
-                    {book.title}
-                  </h5>
-                  <p style={{ fontSize: '0.9rem', color: '#555' }}>
-                    {book.author_name?.join(', ') ||
-                      book.authors?.map(a => a.name).join(', ') ||
-                      'Unknown author'}
-                  </p>
-                </div>
+                  >
+                    <img
+                      src={getCoverUrl(book)}
+                      alt={book.title}
+                      style={{
+                        width: '100px',
+                        height: '150px',
+                        objectFit: 'cover',
+                      }}
+                    />
+                    <h5 style={{ fontSize: '1rem', margin: '0.5rem 0' }}>
+                      {book.title}
+                    </h5>
+                    <p style={{ fontSize: '0.9rem', color: '#555' }}>
+                      {book.author_name?.join(', ') ||
+                        book.authors?.map(a => a.name).join(', ') ||
+                        'Unknown author'}
+                    </p>
+                  </div>
+                </Link>
               ))}
             </div>
           ) : (
